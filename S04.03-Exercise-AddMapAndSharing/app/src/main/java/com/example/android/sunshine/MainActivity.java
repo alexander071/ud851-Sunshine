@@ -220,9 +220,32 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
             loadWeatherData();
             return true;
         }
-
-        // TODO (2) Launch the map when the map menu item is clicked
+        if (id == R.id.action_map) {
+            openMap();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void openMap() {
+        String address = "Tzar Boris III Blvd., 136A, 1618 Sophia";
+
+        Uri uri = new Uri.Builder()
+                .scheme("geo")
+                .path("0,0")
+                .appendQueryParameter("q", address)
+                .build();
+
+        viewUri(uri);
+    }
+
+    private void viewUri(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(uri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
 }
