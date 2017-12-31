@@ -22,7 +22,7 @@
   - In order to use Android's data binding capabilities, (to avoid having to type findViewById   -
   - over and over again) we wrap this layout in a <layout></layout> tag.                         -
   -                                                                                              -
-  - Note that this is the PORTRAIT version of the layout.                                        -
+  - Note that this is the LANDSCAPE version of the layout.                                        -
   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
@@ -30,7 +30,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
           - To efficiently re-use complete layouts, you can use the <include/> tags to embed     -
@@ -43,15 +43,15 @@
         <include
             android:id="@+id/primary_info"
             layout="@layout/primary_weather_info"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"/>
 
         <include
             android:id="@+id/extra_details"
             layout="@layout/extra_weather_details"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"/>
 
     </LinearLayout>
